@@ -13,10 +13,45 @@ import { HomepageHeading } from "./HomepageHeading";
 
 class MobileContainer extends Component {
   state = {};
+  adminWebsite = () =>{
+    window.open(
+        process.env.REACT_APP_ADMIN_SITE_URL
+      )
+    this.handleSidebarHide();
+  };
+  scrollToTop = () =>{
+    window.scrollTo({
+      top: 0, 
+      behavior: 'smooth'
+    });
+    this.handleSidebarHide();
+  };
+  scrollToSpaces = () =>{
+    window.scrollTo({
+      top: 400, 
+      behavior: 'smooth'
+    });
+    this.handleSidebarHide();
+  };
+  scrollToPricing = () =>{
+    window.scrollTo({
+      top: 1400, 
+      behavior: 'smooth'
+    });
+    this.handleSidebarHide();
+  };
+  scrollToContact = () =>{
+    window.scrollTo({
+      top: 2350, 
+      behavior: 'smooth'
+    });
+    this.handleSidebarHide();
+  };
   handleSidebarHide = () =>
     this.setState({
       sidebarOpened: false,
     });
+  
   handleToggle = () =>
     this.setState({
       sidebarOpened: true,
@@ -35,14 +70,13 @@ class MobileContainer extends Component {
             vertical
             visible={sidebarOpened}
           >
-            <Menu.Item as="a" active>
+            <Menu.Item onClick = {this.scrollToTop} as="a" active>
               Home
             </Menu.Item>
-            <Menu.Item as="a">Work</Menu.Item>
-            <Menu.Item as="a">Company</Menu.Item>
-            <Menu.Item as="a">Careers</Menu.Item>
-            <Menu.Item as="a">Log in</Menu.Item>
-            <Menu.Item as="a">Sign Up</Menu.Item>
+            <Menu.Item onClick = {this.scrollToSpaces} as="a">Spaces</Menu.Item>
+            <Menu.Item onClick = {this.scrollToPricing} as="a">Pricing</Menu.Item>
+            <Menu.Item onClick = {this.scrollToContact} as="a">Contact</Menu.Item>
+            <Menu.Item onClick = {this.adminWebsite} as="a">Log in</Menu.Item>
           </Sidebar>
           <Sidebar.Pusher dimmed={sidebarOpened}>
             <Segment
@@ -57,11 +91,8 @@ class MobileContainer extends Component {
                     <Icon name="sidebar" />
                   </Menu.Item>
                   <Menu.Item position="right">
-                    <Button as="a" inverted>
+                    <Button onClick = {this.adminWebsite} as="a" inverted>
                       Log in
-                    </Button>
-                    <Button as="a" inverted style={{ marginLeft: "0.5em" }}>
-                      Sign Up
                     </Button>
                   </Menu.Item>
                 </Menu>

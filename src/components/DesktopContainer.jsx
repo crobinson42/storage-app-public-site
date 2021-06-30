@@ -16,6 +16,36 @@ import { HomepageHeading } from "./HomepageHeading";
  */
 class DesktopContainer extends Component {
   state = {};
+  
+  adminWebsite = () =>{
+    window.open(
+        process.env.REACT_APP_ADMIN_SITE_URL
+      )
+  };
+  scrollToTop = () =>{
+    window.scrollTo({
+      top: 0, 
+      behavior: 'smooth'
+    });
+  };
+  scrollToSpaces = () =>{
+    window.scrollTo({
+      top: 700, 
+      behavior: 'smooth'
+    });
+  };
+  scrollToPricing = () =>{
+    window.scrollTo({
+      top: 1350, 
+      behavior: 'smooth'
+    });
+  };
+  scrollToContact = () =>{
+    window.scrollTo({
+      top: 1600, 
+      behavior: 'smooth'
+    });
+  };
   hideFixedMenu = () =>
     this.setState({
       fixed: false,
@@ -48,23 +78,15 @@ class DesktopContainer extends Component {
               size="large"
             >
               <Container>
-                <Menu.Item as="a" active>
+                <Menu.Item onClick = {this.scrollToTop} as="a" active >
                   Home
                 </Menu.Item>
-                <Menu.Item as="a">Work</Menu.Item>
-                <Menu.Item as="a">Company</Menu.Item>
-                <Menu.Item as="a">Careers</Menu.Item>
+                <Menu.Item onClick = {this.scrollToSpaces} as="a" >Spaces</Menu.Item>
+                <Menu.Item onClick = {this.scrollToPricing} as="a">Pricing</Menu.Item>
+                <Menu.Item onClick = {this.scrollToContact}as="a">Contact</Menu.Item>
                 <Menu.Item position="right">
-                  <Button as="a" inverted={!fixed}>
+                  <Button onClick = {this.adminWebsite} as="a" inverted={!fixed}>
                     Log in
-                  </Button>
-                  <Button
-                    as="a"
-                    inverted={!fixed}
-                    primary={fixed}
-                    style={{ marginLeft: "0.5em" }}
-                  >
-                    Sign Up
                   </Button>
                 </Menu.Item>
               </Container>
