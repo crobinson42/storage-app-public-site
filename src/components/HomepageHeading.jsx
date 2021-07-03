@@ -9,6 +9,7 @@ import { Button, Container, Header, Icon } from "semantic-ui-react";
 const HomepageHeading = ({ mobile }) => (
   <Container text>
     <Header
+      id = 'header'
       as="h1"
       content="Prairie Avenue Storage"
       inverted

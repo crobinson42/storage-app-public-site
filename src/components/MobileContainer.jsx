@@ -10,48 +10,14 @@ import {
 } from "semantic-ui-react";
 import { Media } from "../utils";
 import { HomepageHeading } from "./HomepageHeading";
+import { adminWebsite, scrollToTop } from './Helper'
 
 class MobileContainer extends Component {
   state = {};
-  adminWebsite = () =>{
-    window.open(
-        process.env.REACT_APP_ADMIN_SITE_URL
-      )
-    this.handleSidebarHide();
-  };
-  scrollToTop = () =>{
-    window.scrollTo({
-      top: 0, 
-      behavior: 'smooth'
-    });
-    this.handleSidebarHide();
-  };
-  scrollToSpaces = () =>{
-    window.scrollTo({
-      top: 400, 
-      behavior: 'smooth'
-    });
-    this.handleSidebarHide();
-  };
-  scrollToPricing = () =>{
-    window.scrollTo({
-      top: 1400, 
-      behavior: 'smooth'
-    });
-    this.handleSidebarHide();
-  };
-  scrollToContact = () =>{
-    window.scrollTo({
-      top: 2350, 
-      behavior: 'smooth'
-    });
-    this.handleSidebarHide();
-  };
   handleSidebarHide = () =>
     this.setState({
       sidebarOpened: false,
     });
-  
   handleToggle = () =>
     this.setState({
       sidebarOpened: true,
@@ -70,13 +36,13 @@ class MobileContainer extends Component {
             vertical
             visible={sidebarOpened}
           >
-            <Menu.Item onClick = {this.scrollToTop} as="a" active>
+            <Menu.Item onClick = {this.handleSidebarHide, scrollToTop} as="a" active>
               Home
             </Menu.Item>
-            <Menu.Item onClick = {this.scrollToSpaces} as="a">Spaces</Menu.Item>
-            <Menu.Item onClick = {this.scrollToPricing} as="a">Pricing</Menu.Item>
-            <Menu.Item onClick = {this.scrollToContact} as="a">Contact</Menu.Item>
-            <Menu.Item onClick = {this.adminWebsite} as="a">Log in</Menu.Item>
+            <Menu.Item onClick = {this.handleSidebarHide} as="a"><a href='#spaces'> Spaces</a></Menu.Item>
+            <Menu.Item onClick = {this.handleSidebarHide} as="a"><a href='#pricing'> Pricing</a></Menu.Item>
+            <Menu.Item onClick = {this.handleSidebarHide} as="a"><a href='#contact'> Contact</a></Menu.Item>
+            <Menu.Item onClick = {this.handleSidebarHide, adminWebsite} as="a">Log in</Menu.Item>
           </Sidebar>
           <Sidebar.Pusher dimmed={sidebarOpened}>
             <Segment
@@ -91,7 +57,7 @@ class MobileContainer extends Component {
                     <Icon name="sidebar" />
                   </Menu.Item>
                   <Menu.Item position="right">
-                    <Button onClick = {this.adminWebsite} as="a" inverted>
+                    <Button onClick = {this.handleSidebarHide, adminWebsite} as="a" inverted>
                       Log in
                     </Button>
                   </Menu.Item>
