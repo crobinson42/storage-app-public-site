@@ -10,6 +10,7 @@ import {
 } from "semantic-ui-react";
 import { Media } from "../utils";
 import { HomepageHeading } from "./HomepageHeading";
+import { adminWebsite, scrollToTop } from './Helper'
 
 class MobileContainer extends Component {
   state = {};
@@ -35,14 +36,13 @@ class MobileContainer extends Component {
             vertical
             visible={sidebarOpened}
           >
-            <Menu.Item as="a" active>
+            <Menu.Item onClick = {this.handleSidebarHide, scrollToTop} as="a" active>
               Home
             </Menu.Item>
-            <Menu.Item as="a">Work</Menu.Item>
-            <Menu.Item as="a">Company</Menu.Item>
-            <Menu.Item as="a">Careers</Menu.Item>
-            <Menu.Item as="a">Log in</Menu.Item>
-            <Menu.Item as="a">Sign Up</Menu.Item>
+            <Menu.Item onClick = {this.handleSidebarHide} as="a"><a href='#spaces'> Spaces</a></Menu.Item>
+            <Menu.Item onClick = {this.handleSidebarHide} as="a"><a href='#pricing'> Pricing</a></Menu.Item>
+            <Menu.Item onClick = {this.handleSidebarHide} as="a"><a href='#contact'> Contact</a></Menu.Item>
+            <Menu.Item onClick = {this.handleSidebarHide, adminWebsite} as="a">Log in</Menu.Item>
           </Sidebar>
           <Sidebar.Pusher dimmed={sidebarOpened}>
             <Segment
@@ -57,11 +57,8 @@ class MobileContainer extends Component {
                     <Icon name="sidebar" />
                   </Menu.Item>
                   <Menu.Item position="right">
-                    <Button as="a" inverted>
+                    <Button onClick = {this.handleSidebarHide, adminWebsite} as="a" inverted>
                       Log in
-                    </Button>
-                    <Button as="a" inverted style={{ marginLeft: "0.5em" }}>
-                      Sign Up
                     </Button>
                   </Menu.Item>
                 </Menu>

@@ -9,6 +9,10 @@ import {
 } from "semantic-ui-react";
 import { Media } from "../utils";
 import { HomepageHeading } from "./HomepageHeading";
+import { adminWebsite, scrollToTop } from './Helper'
+
+
+
 
 /* Heads up!
  * Neither Semantic UI nor Semantic UI React offer a responsive navbar, however, it can be implemented easily.
@@ -16,6 +20,7 @@ import { HomepageHeading } from "./HomepageHeading";
  */
 class DesktopContainer extends Component {
   state = {};
+  
   hideFixedMenu = () =>
     this.setState({
       fixed: false,
@@ -24,9 +29,12 @@ class DesktopContainer extends Component {
     this.setState({
       fixed: true,
     });
+  
   render() {
+    
     const { children } = this.props;
     const { fixed } = this.state;
+    
     return (
       <Media greaterThan="mobile">
         <Visibility
@@ -48,23 +56,15 @@ class DesktopContainer extends Component {
               size="large"
             >
               <Container>
-                <Menu.Item as="a" active>
+                <Menu.Item onClick = {scrollToTop} as="a" active >
                   Home
                 </Menu.Item>
-                <Menu.Item as="a">Work</Menu.Item>
-                <Menu.Item as="a">Company</Menu.Item>
-                <Menu.Item as="a">Careers</Menu.Item>
+                <Menu.Item as="a" ><a href='#spaces'> Spaces</a></Menu.Item>
+                <Menu.Item as="a"><a href='#pricing'>Pricing</a></Menu.Item>
+                <Menu.Item as="a"><a href='#contact'>Contact</a></Menu.Item>
                 <Menu.Item position="right">
-                  <Button as="a" inverted={!fixed}>
+                  <Button onClick = {adminWebsite} as="a" inverted={!fixed}>
                     Log in
-                  </Button>
-                  <Button
-                    as="a"
-                    inverted={!fixed}
-                    primary={fixed}
-                    style={{ marginLeft: "0.5em" }}
-                  >
-                    Sign Up
                   </Button>
                 </Menu.Item>
               </Container>
