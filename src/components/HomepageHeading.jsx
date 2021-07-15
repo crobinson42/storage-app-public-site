@@ -10,21 +10,16 @@ const HomepageHeading = ({ mobile }) => (
   <Container text>
     <Header
       id = 'header'
-      as="h1"
+      as="h2"
       content="Prairie Avenue Storage"
       inverted
       style={{
         fontSize: mobile ? "2em" : "4em",
         fontWeight: "normal",
-        marginBottom: 1,
-        marginTop: mobile ? "1.5em" : "3em",
+        marginBottom: 0,
+        marginTop: mobile ? "2em" : "4em",
       }}
     />
-    
-    <Button  primary size="huge">
-      Get Started
-      <Icon name="right arrow" />
-    </Button>
   </Container>
 );
 
