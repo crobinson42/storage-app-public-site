@@ -47,10 +47,10 @@ const HomepageLayout = () => (
         </Grid.Row>
       </Grid>
     </Segment>
-    <Segment id = 'pricing' style={{ padding: "0em" }} vertical>
-    <Grid container stackable verticalAlign="middle">
-        <Grid.Row textAlign="center">
-        <Grid.Column floated="center" width={6}>
+    <Segment id = 'pricing' style={{ padding: "8em" }} vertical>
+    <Grid  container stackable verticalAlign="middle">
+        <Grid.Row  textAlign="center">
+        <Grid.Column  floated="center" width={6}>
             <Image
               bordered
               rounded
