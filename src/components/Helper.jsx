@@ -10,4 +10,7 @@ export function scrollToTop(){
           behavior: 'smooth'
         });
       };
+export function emailButton(){
+        <a href="mailto:name@email.com">Link text</a>
+      };
 

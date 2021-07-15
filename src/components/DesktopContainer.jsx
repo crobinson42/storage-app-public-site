@@ -19,7 +19,9 @@ import { adminWebsite, scrollToTop } from './Helper'
  * It can be more complicated, but you can create really flexible markup.
  */
 class DesktopContainer extends Component {
-  state = {};
+  state = {
+    fixed: true
+  };
   
   hideFixedMenu = () =>
     this.setState({
@@ -40,7 +42,7 @@ class DesktopContainer extends Component {
         <Visibility
           once={false}
           onBottomPassed={this.showFixedMenu}
-          onBottomPassedReverse={this.hideFixedMenu}
+          //onBottomPassedReverse={this.hideFixedMenu}
         >
           <Segment
             inverted
